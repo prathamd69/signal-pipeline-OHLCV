@@ -17,9 +17,9 @@ def setup_config(config_path: str, logger) -> dict:
     # validating the compulsory keys
     req_keys = {"seed", "window", "version"}
     if not config or not req_keys.issubset(config.keys()):
-        error = "Config missing required fields. Expected: {req_keys}"
-        logger.error(error)
-        raise ValueError(error)
+        _error = "Config missing required fields. Expected: {req_keys}"
+        logger.error(_error)
+        raise ValueError(_error)
     
     logger.info(f"Config loaded successfully: Version={config['version']}, Window={config['window']}, Seed={config['seed']}")
     
