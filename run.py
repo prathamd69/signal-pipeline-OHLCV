@@ -1,5 +1,6 @@
 import argparse
-from src.utils import configLogger
+from src.utils import (configLogger,
+                       setup_config)
 
 def parse_arguments():
 
@@ -15,8 +16,12 @@ def parse_arguments():
 def main():
     args = parse_arguments()
 
+    #setting up logger
     logger = configLogger("runs", args.log_file)
     logger.info("Job initialized and starting.")
+
+    #setting up config file
+    config = setup_config(args.config, logger)
 
 if __name__ == "__main__":
     main()
