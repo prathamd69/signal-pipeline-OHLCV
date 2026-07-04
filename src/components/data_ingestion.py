@@ -18,7 +18,19 @@ def data_loading(datapath : Path, logger) -> pd.DataFrame:
         raise ValueError(_error)
     
     try:
-        raw = pd.read_csv(datapath)
+        raw = pd.read_csv(datapath, sep=',')
+        """FIX FOR THE "SQUASHED COLUMN" 
+        In this dataset, the columns are squashed into a single string (e.g., 'timestamp,open,high...'), 
+        so we manually split them by commas and convert 'close' to a float to fix it.
+        """
+        if len(raw.columns) == 1 and 'close' in raw.columns[0] and ',' in raw.columns[0]:
+            logger.warning("Detected maliciously squashed CSV format. Manually splitting columns...")
+
+            squashed_col = raw.columns[0]
+
+            raw = raw[squashed_col].str.split(',', expand=True)
+            raw.columns = squashed_col.split(',')
+            raw['close'] = pd.to_numeric(raw['close'], errors='coerce')
 
     # Invalid CSV format 
     except pd.errors.ParserError as e:

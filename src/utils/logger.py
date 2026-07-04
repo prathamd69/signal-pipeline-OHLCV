@@ -23,6 +23,7 @@ def configLogger(loggerName: str, loggerPath: str) -> Logger:
     streamHandler.setFormatter(logFormat)
 
     logger.addHandler(fileHandler)
-    logger.addHandler(streamHandler)
+    # disabled stream/console logger
+    # logger.addHandler(streamHandler)
 
     return logger
