@@ -39,7 +39,7 @@ def data_loading(datapath : Path, logger) -> pd.DataFrame:
 
     # validating required column
     if 'close' not in raw.columns:
-        _error = "Dataset validation failed: Required column 'close' is missing."
+        _error = "Dataset validation failed: Required column -close- is missing."
         logger.error(_error)
         raise KeyError(_error)
 
