@@ -1,0 +1,13 @@
+[ 2026-07-04 09:52:40,134 ] runs - INFO - Job initialized and starting.
+[ 2026-07-04 09:52:40,134 ] runs - INFO - Attempting to load configuration from: config.yaml
+[ 2026-07-04 09:52:40,135 ] runs - INFO - Config loaded successfully: Version=v1, Window=5, Seed=42
+[ 2026-07-04 09:52:40,135 ] runs - DEBUG - Global random seed set to 42.
+[ 2026-07-04 09:52:40,135 ] runs - INFO - Reading config for parameters.
+[ 2026-07-04 09:52:40,136 ] runs - INFO - Attempting to load dataset from: data.csv
+[ 2026-07-04 09:52:40,159 ] runs - WARNING - Detected maliciously squashed CSV format. Manually splitting columns...
+[ 2026-07-04 09:52:40,179 ] runs - INFO - Dataset loaded and validated successfully. Total rows: 10000
+[ 2026-07-04 09:52:40,179 ] runs - INFO - Initiating signal generation pipeline. Window size: 5
+[ 2026-07-04 09:52:40,182 ] runs - DEBUG - Calculating rolling mean on 'close' column.
+[ 2026-07-04 09:52:40,185 ] runs - DEBUG - Evaluating threshold for binary signals.
+[ 2026-07-04 09:52:40,191 ] runs - INFO - Signal pipeline execution successful.
+[ 2026-07-04 09:52:40,192 ] runs - INFO - Pipeline execution complete. Writing metrics at metrics.json
