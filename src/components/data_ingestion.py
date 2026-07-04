@@ -3,7 +3,7 @@ import os
 import numpy as np
 from pathlib import Path
 
-def data_loading(datapath : Path, logger):
+def data_loading(datapath : Path, logger) -> pd.DataFrame:
 
     logger.info(f"Attempting to load dataset from: {datapath}")
 
